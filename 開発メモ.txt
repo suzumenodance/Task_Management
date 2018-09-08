@@ -1,0 +1,22 @@
+・Rubyのバージョンを合わせないとサーバを立ち上げることができない
+v2.4.4で開発
+
+・基本のURL
+http://localhost:3000/home/top
+
+・ページの作成の手順
+１．プロジェクトの構築
+rails new tweet_app（プロジェクト名）
+２．サーバの起動
+rails server (rails sでも可)
+http://localhost:3000
+3.コントローラの作成
+rails generate controller home（コントローラ名） top（アクション名）
+コントローラ名と同じビューフォルダから、アクション名と同じHTMLファイルをブラウザに返す
+４．ルーティングの設定
+URL、コントローラ、アクションの対応表
+config/routes.rb
+get "URL" => "コントローラ名＃アクション名"
+→ビュー
+→コントローラ
+→ルーティング
