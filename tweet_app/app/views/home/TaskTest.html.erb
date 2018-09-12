@@ -1,0 +1,96 @@
+<html>
+  <div class="TaskTestClass">
+    <body>
+      <p></p>
+      <p></p>
+      <table id="tbl" border = "1">
+        <tr>
+          <td>
+            <input id="0" type="button" value="料理" onclick="AddTask(this)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="1" type="button" value="掃除" onclick="AddTask(this)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="2" type="button" value="洗濯" onclick="AddTask(this)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="3" type="button" value="趣味" onclick="AddTask(this)">
+          </td>
+        </tr>
+      </table>
+    </body>
+  </div>
+</html>
+
+<script>
+  function AddTask(Task){
+    var TaskID = Task.id;
+    var newCell = tbl.rows[TaskID].insertCell();
+    // 新しいセルに"＄"と書く
+    switch(TaskID){
+      case "0": newCell.innerHTML = "料理"; break;
+      case "1": newCell.innerHTML = "掃除"; break;
+      case "2": newCell.innerHTML = "洗濯"; break;
+      case "3": newCell.innerHTML = "趣味"; break;
+    }
+
+  }
+
+  // 行を追加
+  function AddRow()
+  {
+      // 新しい行を追加
+      var newRow = tbl.insertRow();
+      var i;
+      for (i = 0; i < tbl.rows[0].cells.length; i++) {
+          // 新しい行にセルを作っていく
+          var newCell = newRow.insertCell();
+          newCell.innerHTML = "＄";
+      }
+  }
+
+  // 行を削除
+  function DelRow()
+  {
+      var i;
+      // 行の数が１以下だったらやめる
+      if (tbl.rows.length <= 1) {
+          return;
+      }
+      // 最後の行を削除する
+      tbl.deleteRow(tbl.rows.length-1);
+  }
+
+  // 列を追加
+  function AddCol()
+  {
+      var i;
+      for (i = 0; i < tbl.rows.length; i++) {
+          // 全ての行に１列ずつ追加
+          var newCell = tbl.rows[i].insertCell();
+          // 新しいセルに"＄"と書く
+          newCell.innerHTML = "＄";
+      }
+  }
+
+  // 列を削除
+  function DelCol()
+  {
+      var i;
+      // 列の数が１こ以下だったらやめる
+      if (tbl.rows[0].cells.length <= 1) {
+          return;
+      }
+      for (i = 0; i < tbl.rows.length; i++) {
+          // 全ての行で１列ずつ削除
+          tbl.rows[i].deleteCell(tbl.rows[i].length-1);
+      }
+  }
+</script>

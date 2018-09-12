@@ -3,4 +3,6 @@ class HomeController < ApplicationController
   end
   def about
   end
+  def TaskTest
+  end
 end
