@@ -1,0 +1,37 @@
+<h1>カレンダー</h1>
+<h1><%= @date.year %>年<%= @date.month %>月</h1>
+
+<div>
+  <%= link_to "<<", "/back_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
+  <%= link_to ">>", "/next_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
+  <%= link_to "今日", "/today" %>
+</div>
+
+<table border="1">
+  <!-- 曜日 -->
+  <tr>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+  </tr>
+  <!-- 日付 -->
+  <%for i in 0..@calendar.length - 1%>
+    <tr>
+    <% for j in 0..@calendar[0].length - 1%>
+      <% if @calendar[i][j] == 0 %>
+        <td></td>
+      <% else %>
+        <td><%= link_to @calendar[i][j], "/day_schedule/#{@date.year}/#{@date.month}/#{@calendar[i][j]}"%></td>
+      <% end %>
+    <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<div>
+  <h1><%= @date.day %>日</h1>
+</div>
