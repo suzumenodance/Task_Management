@@ -1,0 +1,6 @@
+<h1>User_detail</h1>
+<p>
+  <li><%= @users.name %></li>
+  <li><%= @users.email %></li>
+  <%= link_to("編集","/users/#{@users.id}/edit")%>
+</p>

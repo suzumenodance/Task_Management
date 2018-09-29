@@ -1,0 +1,16 @@
+<h1>User_edit</h1>
+<%= form_tag("/users/#{@users.id}/update") do %>
+  <p>ユーザー名</p>
+  <input name="name" type="text" value="<%= @users.name %>">
+  <p>メールアドレス</p>
+  <input name="email" type="text" value="<%= @users.email %>">
+  <p>
+    <input type="submit" value="保存">
+  </p>
+<% end %>
+<p>
+  <!-- すべてのエラーメッセージを表示 -->
+  <% @users.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+</p>

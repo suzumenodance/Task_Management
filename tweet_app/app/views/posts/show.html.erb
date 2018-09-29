@@ -1,0 +1,7 @@
+<h1>Show</h1>
+<p>
+  <li><%= @post.content %></li>
+  <li><%= @post.created_at %></li>
+  <%= link_to("編集","/posts/#{@post.id}/edit")%>
+  <%= link_to("削除","/posts/#{@post.id}/destroy", {method:"post"})%>
+</p>

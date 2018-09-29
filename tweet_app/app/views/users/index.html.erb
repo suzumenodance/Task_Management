@@ -1,0 +1,10 @@
+<h1>Users</h1>
+<p>ユーザ一覧</p>
+<p>
+  <% @users.each do |user| %>
+  <li>
+    <%#= link_to "#{user.id}" + " , " + "name:" + user.name + " , " + "email:" + user.email, "/users/#{user.id}" %>
+    <%= link_to user.name, "/users/#{user.id}" %>
+  </li>
+  <% end %>
+</p>
