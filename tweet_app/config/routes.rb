@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   post 'users/create' => 'users#create'
   get 'users/:id/edit' => 'users#edit'
   post 'users/:id/update' => 'users#update'
+  #login
+  get 'login' => "users#login_form"
+  post 'login' => 'users#login'
+  post 'logout' => "users#logout"
+
   get 'users/:id' => 'users#show'#必ず一番下に記述
 end

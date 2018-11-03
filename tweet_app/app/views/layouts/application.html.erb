@@ -15,7 +15,10 @@
     <a href="/posts/index">Post</a>
     <a href="/posts/new">New</a>
     <a href="/users/index">Users</a>
-    <a href="/users/signup">Signup</a> 
+    <a href="/users/signup">Signup</a>
+    <a href="/login">Login</a>
+    現在ログインしているユーザのid:
+    <%= session[:user_id] %>
     <p>
       <% if flash[:notice] %>
       <%= flash[:notice] %>
