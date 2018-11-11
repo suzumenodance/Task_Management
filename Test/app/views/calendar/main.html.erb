@@ -36,17 +36,72 @@
   <h1><%= @date.day %>日</h1>
 </div>
 
+<!-- dbtest -->
 <div>
-  <button type="submit" name="user">
-    <font size="5" color="#995555">ユーザ追加</font>
-  </button>
+  <%= button_to "ユーザ追加", {controller: 'calendar', action: 'add_user'} %>
+  <%= button_to "アイコン追加", {controller: 'calendar', action: 'add_icon'} %>
+  <%= button_to "スケジュール追加", {controller: 'calendar', action: 'add_schedule'} %>
+  <%= button_to "全削除", {controller: 'calendar', action: 'delete_table_all'} %>
+</div>
 
-  <button type="submit" name="user">
-    <font size="5" color="#559955">スケジュール追加</font>
-  </button>
+<%= @schedule_table.first.start_date.year %>
+<%= @schedule_table.first.start_date.month %>
+<%= @schedule_table.first.start_date.mday %>
+<%= @schedule_table.first.start_date.hour %>
+<%= @schedule_table.first.start_date.min %>
 
-  <button type="submit" name="user">
-    <font size="5" color="#555599">アイコン追加</font>
-  </button>
+<div>
+  ユーザテーブル
+  <table border=1>
+    <th>ID</th>
+    <th>ユーザ名</th>
+    <th>パスワード</th>
+    <% @user_table.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.name %></td>
+        <td><%= post.pass %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
+<div>
+  アイコンテーブル
+  <table border=1>
+    <th>ID</th>
+    <th>アイコン名</th>
+    <th>イメージパス</th>
+    <th>色</th>
+    <th>ユーザID</th>
+    <% @icon_table.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.name %></td>
+        <td><%= post.image_path %></td>
+        <td><%= post.color %></td>
+        <td><%= post.user_id %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div>
+  スケジュールテーブル
+  <table border=1>
+    <th>ID</th>
+    <th>開始日時</th>
+    <th>終了日時</th>
+    <th>ユーザID</th>
+    <th>アイコンID</th>
+    <% @schedule_table.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.start_date %></td>
+        <td><%= post.finish_date %></td>
+        <td><%= post.user_id %></td>
+        <td><%= post.icon_id %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
