@@ -7,9 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= link_to "input", "/input_form"%>
+    <%= link_to "main", "/"%>
   </head>
 
   <body>
+
+    現在ログインしているユーザのid:
+    <%= session[:user_id] %>
+    <p>
+      <% if flash[:notice] %>
+      <%= flash[:notice] %>
+      <% end %>
+    </p>
+    
     <%= yield %>
   </body>
 </html>

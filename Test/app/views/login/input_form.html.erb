@@ -1,0 +1,21 @@
+<!-- ログインフォーム -->
+<div>
+<h3>ログイン</h3>
+<%= form_tag('/login') do %>
+  <p>ユーザー名</p>
+  <input name="user_name" value="">
+  <p>パスワード</p>
+  <input type="password" name="user_pass" value="">
+  <input type="submit" value="ログイン">
+<% end %>
+</div>
+
+<!-- 新規登録フォーム -->
+<h3>新規登録</h3>
+<%= form_tag('/sine_up') do %>
+  <p>ユーザーID</p>
+  <input name="user_name" value="">
+  <p>パスワード</p>
+  <input type="password" name="user_pass" value="">
+  <input type="submit" value="登録">
+<% end %>
