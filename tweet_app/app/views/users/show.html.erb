@@ -1,9 +1,0 @@
-<h1>User_detail</h1>
-<p>
-  <% if File.exist?("/user_images/#{@users.image_name}") %>
-    <img src="<%= "/user_images/#{@users.image_name}" %>">
-  
-  <li><%= @users.name %></li>
-  <li><%= @users.email %></li>
-  <%= link_to("編集","/users/#{@users.id}/edit")%>
-</p>
